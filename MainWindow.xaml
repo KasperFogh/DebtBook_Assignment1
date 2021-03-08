@@ -1,0 +1,16 @@
+﻿<Window x:Class="DebtBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DebtBook"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Hej og velkommen til GUI obligatorisk aflevering 1... yaaaay!!!" 
+                 Margin="5,10,5,10" 
+                 Grid.Column="0" 
+                 Grid.Row="0">
+        </Label>
+    </Grid>
+</Window>
