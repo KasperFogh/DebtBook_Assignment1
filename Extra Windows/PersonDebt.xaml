@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DebtBook"
         mc:Ignorable="d"
         Title="Person balance" Height="500" Width="500">
-    
+    <!--test-->
     <Grid Margin="10,10,10,10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="280"></ColumnDefinition>
