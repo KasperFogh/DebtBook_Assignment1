@@ -5,8 +5,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DebtBook"
         mc:Ignorable="d"
-        Title="Add person to debt book" Height="450" Width="800">
+        Title="Add person to debt book" Height="220" Width="250">
+    
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="Add depter"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"
+               FontSize="20"
+               FontWeight="Bold"
+               ></Label>
+        <TextBox Name="tbx_personName"
+                 Grid.Row="1"
+                 Margin="5"
+                 ></TextBox>
+        <TextBox Name="tbx_personValue"
+                 Grid.Row="2"
+                 Margin="5"
+                 ></TextBox>
+        <Button Name="btn_cancel"
+                Content="Cancel"
+                Grid.Row="3"
+                Height="30"
+                Width="80"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="5"
+                ></Button>
+
+        <Button Name="btn_save"
+                Content="Save"
+                Grid.Row="3"
+                Height="30"
+                Width="80"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Margin="5"
+                ></Button>
+
     </Grid>
 </Window>
