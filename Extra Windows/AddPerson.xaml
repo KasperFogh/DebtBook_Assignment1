@@ -22,10 +22,12 @@
                FontWeight="Bold"
                ></Label>
         <TextBox Name="tbx_personName"
+                 Text="Enter name here"
                  Grid.Row="1"
                  Margin="5"
                  ></TextBox>
         <TextBox Name="tbx_personValue"
+                 Text="Enter a value"
                  Grid.Row="2"
                  Margin="5"
                  ></TextBox>
