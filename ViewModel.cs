@@ -17,7 +17,7 @@ namespace DebtBook
     {
         public ViewModel()
         {
-            AddCommand = new DelegateCommand(AddNewPerson);
+            //AddCommand = new DelegateCommand(AddNewPerson);
         }
         #region Commands
         ICommand _exitCommand;
@@ -34,8 +34,11 @@ namespace DebtBook
         ICommand _addCommand;
         public ICommand AddCommand
         {
-            get;
-            private set;
+            get
+            {
+                return _addCommand ?? (_addCommand = new DelegateCommand((AddNewPerson)));
+            }
+           
         }
         
         private void AddNewPerson()
