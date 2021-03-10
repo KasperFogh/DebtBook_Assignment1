@@ -26,7 +26,7 @@ namespace DebtBook.Extra_Windows
         }
 
 
-        //Color control in the two textboxes
+        //Color control in the two textboxes....
         private void tbx_personName_GotFocus(object sender, RoutedEventArgs e)
         {
             if (tbx_personName.Text == "Enter name here:")
