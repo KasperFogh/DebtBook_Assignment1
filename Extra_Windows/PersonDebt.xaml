@@ -30,7 +30,8 @@
                  Grid.RowSpan="3"
             ></ListBox>
         <TextBox Name="tbx_value"
-                 Text="Enter value here"
+                 Text="Enter value here:"
+                 
                  Grid.Column="1"
                  Grid.Row="1"
                  Margin="5,0,0,0"

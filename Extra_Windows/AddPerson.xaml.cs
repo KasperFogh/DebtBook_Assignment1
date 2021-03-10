@@ -24,5 +24,43 @@ namespace DebtBook.Extra_Windows
             InitializeComponent();
             this.DataContext = new ViewModel();
         }
+
+
+        //Color control in the two textboxes
+        private void tbx_personName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbx_personName.Text == "Enter name here:")
+            {
+                tbx_personName.Text = "";
+                tbx_personName.Foreground = Brushes.Black;
+            }
+        }
+
+        private void tbx_personValue_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(tbx_personValue.Text == "Enter a value:")
+            {
+                tbx_personValue.Text = "";
+                tbx_personValue.Foreground = Brushes.Black;
+            }
+        }
+
+        private void tbx_personName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if(tbx_personName.Text == "")
+            {
+                tbx_personName.Text = "Enter name here:";
+                tbx_personName.Foreground = Brushes.LightSlateGray;
+            }
+        }
+
+        private void tbx_personValue_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (tbx_personValue.Text == "")
+            {
+                tbx_personValue.Text = "Enter a value:";
+                tbx_personValue.Foreground = Brushes.LightSlateGray;
+            }
+        }
     }
 }
