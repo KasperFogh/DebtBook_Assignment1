@@ -30,6 +30,21 @@ namespace DebtBook
                  }));
             }
         }
+        ICommand _addCommand;
+        public ICommand AddCommand
+        {
+            get
+            {
+                return _addCommand ?? (_addCommand=new DelegateCommand(()=>
+                {
+                    App.
+                }
+            }
+        }
+        private void AddPerson()
+        {
+            
+        }
         #endregion
     }
 

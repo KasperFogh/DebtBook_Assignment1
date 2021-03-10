@@ -49,6 +49,7 @@
             <!--Column 2-->
             <Button Name="btn_Add"
                     Content="Add"
+                    Command="{Binding AddCommand}"
                     Grid.Column="1"
                     Grid.Row="1"
                     Padding="5"
