@@ -5,12 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DebtBook"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Label Content="Hej og velkommen til GUI obligatorisk aflevering 1... yaaaay!!!" 
-                 Margin="5,10,5,10" 
-                 Grid.Column="0" 
-                 Grid.Row="0">
-        </Label>
-    </Grid>
+        Title="My dept book" Height="450" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Save"></MenuItem>
+                <MenuItem Header="_Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem Header=""
+        </Menu>
+        <Grid>
+        
+        </Grid>
+    </DockPanel>
 </Window>
