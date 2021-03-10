@@ -9,4 +9,5 @@ namespace DebtBook
     class ViewModel
     {
     }
+
 }
