@@ -76,6 +76,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Model\Date_Time.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">

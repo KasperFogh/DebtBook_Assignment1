@@ -21,7 +21,7 @@ namespace DebtBook.Extra_Windows
     {
         public PersonDebt()
         {
-            //InitializeComponent();
+            InitializeComponent();
         }
     }
 }

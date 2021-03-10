@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DebtBook"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="My debt book" Height="300" Width="300">
     <!--Husk og lav style-->
     <Window.DataContext>
@@ -17,9 +18,11 @@
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
-            <Label Content='Persons in dept book: ' HorizontalAlignment="Left"></Label>
-            <StatusBarItem HorizontalAlignment="Left"></StatusBarItem>
-            <StatusBarItem HorizontalAlignment="Right"></StatusBarItem>
+            <StatusBarItem Content='Persons in dept book: ' HorizontalAlignment="Left"></StatusBarItem>
+            <StatusBarItem Content="{Binding Path=DebtPersons.Count}" HorizontalAlignment="Left"></StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock Text="{Binding Path=dateTime.Date}"></TextBlock>
+            </StatusBarItem>
         </StatusBar>
         <Grid Margin="10,10,10,10">
             <Grid.ColumnDefinitions>
