@@ -9,6 +9,7 @@ using Prism.Mvvm;
 using Prism.Commands;
 using System.IO;
 using System.Xml.Serialization;
+using DebtBook.Extra_Windows;
 
 namespace DebtBook
 {
@@ -16,7 +17,7 @@ namespace DebtBook
     {
         public ViewModel()
         {
-
+            AddCommand = new DelegateCommand(AddNewPerson);
         }
         #region Commands
         ICommand _exitCommand;
@@ -33,17 +34,14 @@ namespace DebtBook
         ICommand _addCommand;
         public ICommand AddCommand
         {
-            get
-            {
-                return _addCommand ?? (_addCommand=new DelegateCommand(()=>
-                {
-                    App.
-                }
-            }
+            get;
+            private set;
         }
-        private void AddPerson()
+        
+        private void AddNewPerson()
         {
-            
+            AddPerson addPerson = new AddPerson();
+            addPerson.Show();
         }
         #endregion
     }

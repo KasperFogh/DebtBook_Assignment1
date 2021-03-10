@@ -12,16 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DebtBook
+namespace DebtBook.Extra_Windows
 {
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class AddPerson : Window
     {
-        public Window1()
+        public AddPerson()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel();
         }
     }
 }

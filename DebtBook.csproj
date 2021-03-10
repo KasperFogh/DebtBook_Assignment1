@@ -65,7 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Extra Windows\AddPerson.xaml.cs">
+    <Compile Include="Extra_Windows\AddPerson.xaml.cs">
       <DependentUpon>AddPerson.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -82,17 +82,17 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Extra Windows\AddPerson.xaml">
+    <Page Include="Extra_Windows\AddPerson.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Extra Windows\PersonDebt.xaml">
+    <Page Include="Extra_Windows\PersonDebt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extra Windows\PersonDebt.xaml.cs">
+    <Compile Include="Extra_Windows\PersonDebt.xaml.cs">
       <DependentUpon>PersonDebt.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
