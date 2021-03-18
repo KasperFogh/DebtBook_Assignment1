@@ -43,6 +43,10 @@
                    FontWeight="Bold">
             </Label>
             <ListBox Name="lst_PersonDept"
+                     ItemsSource="{Binding Path=Persons}"
+                     SelectedIndex="{Binding Path=CurrentPersonIndex}"
+                     IsSynchronizedWithCurrentItem="True"
+                     DisplayMemberPath="Name"
                      Grid.Column="0"
                      Grid.Row="1"
                      Grid.RowSpan="2"

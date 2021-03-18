@@ -12,16 +12,16 @@ namespace DebtBook.Model
         string name;
         DateTime timestamp;
         string number;
-
+        
         public Person()
         {
 
         }
 
-        public Person(string Name, DateTime TimeStamp, string Number)
+        public Person(string Name, string TimeStamp, string Number)
         {
             Name = name;
-            TimeStamp = timestamp;
+            TimeStamp = timestamp.ToString();
             Number = number;
         }
 
