@@ -19,7 +19,7 @@
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem Content='Persons in dept book: ' HorizontalAlignment="Left"></StatusBarItem>
-            <StatusBarItem Content="{Binding Path=DebtPersons.Count}" HorizontalAlignment="Left"></StatusBarItem>
+            <StatusBarItem Content="{Binding Path=Persons.Count}" HorizontalAlignment="Left"></StatusBarItem>
             <StatusBarItem HorizontalAlignment="Right">
                 <TextBlock Text="{Binding Path=dateTime.Date}"></TextBlock>
             </StatusBarItem>
@@ -45,8 +45,8 @@
             <ListBox Name="lst_PersonDept"
                      ItemsSource="{Binding Path=Persons}"
                      SelectedIndex="{Binding Path=CurrentPersonIndex}"
+                     ItemTemplate="{StaticResource PersonsAndNumbers}"
                      IsSynchronizedWithCurrentItem="True"
-                     DisplayMemberPath="Name"
                      Grid.Column="0"
                      Grid.Row="1"
                      Grid.RowSpan="2"

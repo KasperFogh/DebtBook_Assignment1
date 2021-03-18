@@ -29,7 +29,7 @@ namespace DebtBook
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
-            personlist = new ObservableCollection<Person>
+            personlist = new ObservableCollection<Person>()
             {
                 new Person("bob","digdj","50"),
                 new Person("bob","digdj","50"),

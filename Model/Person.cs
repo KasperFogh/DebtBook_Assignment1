@@ -10,7 +10,7 @@ namespace DebtBook.Model
     public class Person
     {
         string name;
-        DateTime timestamp;
+        string timestamp = DateTime.Now.ToString();
         string number;
         
         public Person()
@@ -18,15 +18,15 @@ namespace DebtBook.Model
 
         }
 
-        public Person(string Name, string TimeStamp, string Number)
+        public Person(string aName, string aTimeStamp, string aNumber)
         {
-            Name = name;
-            TimeStamp = timestamp.ToString();
-            Number = number;
+            name = aName;
+            timestamp  = aTimeStamp;
+            number = aNumber;
         }
 
         public string Name { get { return name; } set { name = value; } }
-        public DateTime Timestamp { get { return timestamp; } set { timestamp = value; } }
+        public string Timestamp { get { return timestamp; } set { timestamp = value; } }
         public string Number { get { return number; } set { number = value; } }
     }
 }
