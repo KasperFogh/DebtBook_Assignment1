@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="My debt book" Height="300" Width="300">
-    <!--Husk og lav style-->
+    <!--Husk og lav style :-) -->
     <Window.DataContext>
         <local:ViewModel></local:ViewModel>
     </Window.DataContext>
