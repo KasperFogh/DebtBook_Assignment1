@@ -62,5 +62,10 @@ namespace DebtBook.Extra_Windows
                 tbx_personValue.Foreground = Brushes.LightSlateGray;
             }
         }
+
+        private void btn_cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -17,6 +17,18 @@
                 </TextBlock>
             </WrapPanel>
         </DataTemplate>
+        <DataTemplate x:Key="DateAndNumber">
+            <WrapPanel>
+                <TextBlock Text="{Binding Path=Timestamp}"
+                           Padding="5"
+                           MinWidth="30">
+                </TextBlock>
+                <TextBlock Text="{Binding Path=Number}"
+                           Padding="5"
+                           MinWidth="30">
+                </TextBlock>
+            </WrapPanel>
+        </DataTemplate>
 
 
     </Application.Resources>

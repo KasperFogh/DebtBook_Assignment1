@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DebtBook.Extra_Windows;
+using Prism.Services.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +23,16 @@ namespace DebtBook
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
-            
+        }
+
+        private void lst_PersonDept_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            PersonDebt personDebt = new PersonDebt();
+            personDebt.Show();
         }
     }
 }

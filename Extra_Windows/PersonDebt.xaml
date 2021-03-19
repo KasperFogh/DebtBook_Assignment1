@@ -24,6 +24,9 @@
                FontWeight="Bold"
             ></Label>
         <ListBox Name="lbx_balance"
+                 ItemsSource="{Binding Path=Persons}"
+                 SelectedItem="{Binding Path=CurrentPersonIndex}"
+                 ItemTemplate="{StaticResource DateAndNumber}"
                  Margin="0,0,5,0"
                  Grid.Column="0"
                  Grid.Row="1"
@@ -31,7 +34,6 @@
             ></ListBox>
         <TextBox Name="tbx_value"
                  Text="Enter value here:"
-                 
                  Grid.Column="1"
                  Grid.Row="1"
                  Margin="5,0,0,0"
@@ -49,7 +51,7 @@
                 Grid.Column="0"
                 Grid.Row="4"
                 Width="80"
-                Height="30"
+                Height="30" Click="btn_close_Click"
                 ></Button>
 
     </Grid>

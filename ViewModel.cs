@@ -13,7 +13,8 @@ using System.IO;
 using System.Xml.Serialization;
 using DebtBook.Extra_Windows;
 using DebtBook.Model;
-
+using System.Windows;
+using System.ComponentModel.Design;
 
 namespace DebtBook
 {
@@ -26,6 +27,13 @@ namespace DebtBook
         private DispatcherTimer timer = new DispatcherTimer();
         public ViewModel()
         {
+            var tempPersons = new ObservableCollection<Person>();
+            XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Person>));
+            TextReader reader = new StreamReader(_filename);
+            tempPersons = (ObservableCollection<Person>)serializer.Deserialize(reader);
+            reader.Close();
+            Persons = tempPersons;
+
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
@@ -36,31 +44,24 @@ namespace DebtBook
                 new Person("bob","digdj","50")
             };
         }
-        int currentPersonIndex =  -1;
-        public int CurrentPersonIndex
-        {
-            get { return currentPersonIndex;  }
-            set
-            {
-                SetProperty(ref currentPersonIndex, value);
-            }
-        }
+        
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             _dateTime.Update();
         }
 
-        private void AddNewPerson()
-        {
-            AddPerson addPerson = new AddPerson();
-            addPerson.Show();
-        }
-
-       
-
-
         #region Property
+        
+        int currentPersonIndex = -1;
+        public int CurrentPersonIndex
+        {
+            get { return currentPersonIndex; }
+            set
+            {
+                SetProperty(ref currentPersonIndex, value);
+            }
+        }
 
         Date_Time _dateTime = new Date_Time();
         public Date_Time dateTime { get => _dateTime; set => _dateTime = value; }
@@ -77,10 +78,20 @@ namespace DebtBook
             }
         }
 
-        #endregion
+        Person currentPerson = null;
+        public Person CurrentPerson
+        {
+            get { return currentPerson; }
+            set
+            {
+                SetProperty(ref currentPerson, value);
+            }
+        }
+
+#endregion
 
 
-        #region Commands
+#region Commands
         ICommand _exitCommand;
         public ICommand ExitCommand
         {
@@ -101,12 +112,18 @@ namespace DebtBook
             }
            
         }
-        ICommand _savePerson;
-        public ICommand SavePerson
+        private void AddNewPerson()
+        {
+            AddPerson addPerson = new AddPerson();
+            addPerson.Show();
+        }
+
+        ICommand _savePersonCommand;
+        public ICommand SavePersonCommand
         {
             get
             {
-                return _savePerson ?? (_savePerson = new DelegateCommand(SaveCommandExecute).ObservesProperty(()=>Persons));
+                return _savePersonCommand ?? (_savePersonCommand = new DelegateCommand(SaveCommandExecute).ObservesProperty(()=>Persons));
             }
         }
         private void SaveCommandExecute()
@@ -117,8 +134,7 @@ namespace DebtBook
             serializer.Serialize(writer, Persons);
             writer.Close();
         }
-        
-        
+
         #endregion
     }
 

@@ -22,6 +22,12 @@ namespace DebtBook.Extra_Windows
         public PersonDebt()
         {
             InitializeComponent();
+            this.DataContext = new ViewModel();
+        }
+
+        private void btn_close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
