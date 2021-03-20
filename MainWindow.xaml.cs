@@ -27,12 +27,19 @@ namespace DebtBook
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel();
         }
 
         private void lst_PersonDept_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             PersonDebt personDebt = new PersonDebt();
-            personDebt.Show();
+            personDebt.ShowDialog();
+        }
+
+        private void btn_Add_Click(object sender, RoutedEventArgs e)
+        {
+            AddPerson addPerson = new AddPerson();
+            addPerson.ShowDialog();
         }
     }
 }

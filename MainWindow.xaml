@@ -58,7 +58,7 @@
             <!--Column 2-->
             <Button Name="btn_Add"
                     Content="Add"
-                    Command="{Binding AddCommand}"
+                    Click="btn_Add_Click"
                     Grid.Column="1"
                     Grid.Row="1"
                     Padding="10,5"

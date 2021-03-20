@@ -15,37 +15,51 @@ using DebtBook.Extra_Windows;
 using DebtBook.Model;
 using System.Windows;
 using System.ComponentModel.Design;
+using Microsoft.Xaml.Behaviors.Core;
+using System.Reflection;
+using Microsoft.Win32;
 
 namespace DebtBook
 {
     public class ViewModel:BindableBase
     {
-        ObservableCollection<Person> personlist;
+        ObservableCollection<Person> personlist = new ObservableCollection<Person>();
         private string _filename = "DebtBook";
-        string _textfile = Path.Combine(Environment.CurrentDirectory, @"Textfile\wave.xml");
+
+
 
         private DispatcherTimer timer = new DispatcherTimer();
         public ViewModel()
         {
+            
+            
             var tempPersons = new ObservableCollection<Person>();
             XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Person>));
             TextReader reader = new StreamReader(_filename);
             tempPersons = (ObservableCollection<Person>)serializer.Deserialize(reader);
             reader.Close();
-            Persons = tempPersons;
-
+            personlist = tempPersons;
+            
+            //foreach(var person in personlist)
+            //{
+            //    if(person.Name == person.Name)
+            //    {
+            //        int total;
+            //        int number = Convert.ToInt32(person.Number);
+            //        foreach(int value in person.Number)
+            //        {
+            //            total = number + value;
+            //        }
+                    
+            //    }
+            //}
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += new EventHandler(Timer_Tick);
             timer.Start();
-            personlist = new ObservableCollection<Person>()
-            {
-                new Person("bob","digdj","50"),
-                new Person("bob","digdj","50"),
-                new Person("bob","digdj","50")
-            };
+            
         }
         
-
+        
         private void Timer_Tick(object sender, EventArgs e)
         {
             _dateTime.Update();
@@ -87,11 +101,35 @@ namespace DebtBook
                 SetProperty(ref currentPerson, value);
             }
         }
+        string newDebtPerson = null;
+        public string NewDebtPerson
+        {
+            get
+            {
+                return newDebtPerson;
+            }
+            set
+            {
+                SetProperty(ref newDebtPerson, value);
+            }
+        }
+        string debtValue = null;
+        public string DebtValue
+        {
+            get
+            {
+                return debtValue;
+            }
+            set
+            {
+                SetProperty(ref debtValue, value);
+            }
+        }
 
-#endregion
+        #endregion
 
 
-#region Commands
+        #region Commands
         ICommand _exitCommand;
         public ICommand ExitCommand
         {
@@ -103,37 +141,33 @@ namespace DebtBook
                  }));
             }
         }
-        ICommand _addCommand;
-        public ICommand AddCommand
-        {
-            get
-            {
-                return _addCommand ?? (_addCommand = new DelegateCommand((AddNewPerson)));
-            }
-           
-        }
-        private void AddNewPerson()
-        {
-            AddPerson addPerson = new AddPerson();
-            addPerson.Show();
-        }
 
         ICommand _savePersonCommand;
         public ICommand SavePersonCommand
         {
             get
             {
-                return _savePersonCommand ?? (_savePersonCommand = new DelegateCommand(SaveCommandExecute).ObservesProperty(()=>Persons));
+                return _savePersonCommand ?? (_savePersonCommand = new DelegateCommand(SaveCommandExecute).ObservesProperty(()=>Persons.Count));
             }
         }
         private void SaveCommandExecute()
         {
-            XmlSerializer serializer  = new XmlSerializer(typeof(ObservableCollection<Person>));
+            personlist.Add(new Person(NewDebtPerson,DateTime.Now.ToString(), DebtValue));
+            XmlSerializer serializerwriter  = new XmlSerializer(typeof(ObservableCollection<Person>));
             TextWriter writer = new StreamWriter(_filename);
 
-            serializer.Serialize(writer, Persons);
+            serializerwriter.Serialize(writer, personlist);
             writer.Close();
+            
+            //var tempPersons = new ObservableCollection<Person>();
+            //XmlSerializer serializer = new XmlSerializer(typeof(ObservableCollection<Person>));
+            //TextReader reader = new StreamReader(_filename);
+            //tempPersons = (ObservableCollection<Person>)serializer.Deserialize(reader);
+            //reader.Close();
+            //personlist = tempPersons;
+           
         }
+       
 
         #endregion
     }

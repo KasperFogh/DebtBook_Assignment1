@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,6 +66,12 @@ namespace DebtBook.Extra_Windows
 
         private void btn_cancel_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void btn_save_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("The person is saved", "Saved", MessageBoxButton.OK, MessageBoxImage.Information);
             this.Close();
         }
     }

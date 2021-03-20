@@ -32,14 +32,14 @@
                HorizontalAlignment="Center"
                ></Label>
         <TextBox Name="tbx_personName"
-                 Text="{Binding Path=CurrentPerson.Name}"
+                 Text="{Binding Path=NewDebtPerson}"
                  Grid.ColumnSpan="2"
                  Grid.Row="1"
                  Foreground="LightSlateGray"
                  Margin="5" GotFocus="tbx_personName_GotFocus" LostFocus="tbx_personName_LostFocus"
                  ></TextBox>
         <TextBox Name="tbx_personValue"
-                 Text="{Binding Path=CurrentPerson.Number}"
+                 Text="{Binding Path=DebtValue}"
                  Grid.ColumnSpan="2"
                  Foreground="LightSlateGray"
                  Grid.Row="2"
@@ -54,6 +54,7 @@
 
         <Button Name="btn_save"
                 Command="{Binding Path=SavePersonCommand}"
+                Click="btn_save_Click"
                 Content="Save"
                 Grid.Row="3"
                 Grid.Column="1"
